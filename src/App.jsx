@@ -1,18 +1,21 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import TodoListForm from './components/TodoListForm';
 
 const FormBase = () => {
 
-  const [firstName, setFirstName] = useState('');
+  // const [firstName, setFirstName] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(firstName)
-  }
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log(firstName)
+  // }
 
   return (
     <div className="container my-5">
-      <div className="title my-5"><h2>Inserimento Nomi: {firstName}</h2></div>
+
+      <TodoListForm />
+
+      {/* <div className="title my-5"><h2>Inserimento Nomi: {firstName}</h2></div>
       <div className="row">
         <div className="col-6">
           <form
@@ -31,7 +34,8 @@ const FormBase = () => {
             >Invio</button>
           </form>
         </div>
-      </div>
+      </div> */}
+
     </div>
   );
 }
