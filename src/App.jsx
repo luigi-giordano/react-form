@@ -4,12 +4,20 @@ const FormBase = () => {
 
   const [firstName, setFirstName] = useState('');
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(firstName)
+  }
+
   return (
     <div className="container my-5">
       <div className="title my-5"><h2>Inserimento Nomi: {firstName}</h2></div>
       <div className="row">
         <div className="col-6">
-          <form action="#">
+          <form
+            action="#"
+            onSubmit={handleSubmit}
+          >
             <input
               className="form-control"
               type="text"
