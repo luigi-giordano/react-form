@@ -20,6 +20,15 @@ const TodoListForm = () => {
     setTodoList(newList);
   }
 
+  const handleRemoveList = (index) => {
+    // Creazione clone todolist
+    const newListList = todoList.filter(item => item.index !== index);
+    // Aggiorno la todolist
+    setTodoList(newListList);
+  }
+
+
+
   return (
     <div className="container my-5">
 
@@ -44,7 +53,14 @@ const TodoListForm = () => {
       <>
         <ul className="list-group">
           {todoList.map((item, index) => (
-            <li key={index} className="list-group-item">{item}</li>
+            <li key={index} className="list-group-item d-flex justify-content-between align-items-center">
+              <span>{item}</span>
+              <i
+                className="fa-solid fa-trash pointer"
+                onClick={() => handleRemoveList(index)}>
+
+              </i>
+            </li>
           ))}
         </ul>
       </>
