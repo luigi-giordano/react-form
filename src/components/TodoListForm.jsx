@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
 const initialList = [
-  'Buy groceries',
-  'Walk the dog',
-  'Finish React project',
-  'Read a book'
+  'Acquisti in fumetteria',
+  'Fare la spesa',
+  'Finire il progetto di lavoro',
+  'Portare fuori la spazzatura'
 ];
 
 const TodoListForm = () => {
@@ -22,17 +22,16 @@ const TodoListForm = () => {
 
   const handleRemoveList = (index) => {
     // Creazione clone todolist
-    const newListList = todoList.filter(item => item.index !== index);
+    const newListList = todoList.filter((item, i) => i !== index);
     // Aggiorno la todolist
     setTodoList(newListList);
   }
-
-
 
   return (
     <div className="container my-5">
 
       <form action="#" onSubmit={handleSubmit}>
+        <div className='title d-flex mb-3 justify-content-center'><h2>Il tuo Blog</h2></div>
 
         <div className="input-group mb-3">
           <input
@@ -40,12 +39,12 @@ const TodoListForm = () => {
             className="form-control"
             value={newTodoList}
             onChange={(e) => setNewTodoList(e.target.value)}
-            placeholder="Recipient's username"
+            placeholder="Inserisci un nuovo elemento nella lista"
           />
           <button
-            className="btn btn-outline-secondary"
+            className="btn btn-outline-secondary btn-primary text-white"
             type="submit"
-          >Vai</button>
+          >Aggiungi</button>
         </div>
 
       </form>
@@ -58,7 +57,6 @@ const TodoListForm = () => {
               <i
                 className="fa-solid fa-trash pointer"
                 onClick={() => handleRemoveList(index)}>
-
               </i>
             </li>
           ))}
